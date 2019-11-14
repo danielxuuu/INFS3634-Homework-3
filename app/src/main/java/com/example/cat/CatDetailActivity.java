@@ -25,15 +25,16 @@ public class CatDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String catID = intent.getStringExtra("id");
         Cat cat = CatDatabase.getCatById(catID);
+
         catName = findViewById(R.id.detailName);
         catDesc = findViewById(R.id.detailDescription);
         catWeight = findViewById(R.id.detailWeight);
         catTemp = findViewById(R.id.detailTemp);
         catOrigin = findViewById(R.id.detailLifeSpan);
-        catLifeSpan = findViewById(R.id.detailURL);
+        catLifeSpan = findViewById(R.id.detailLifeSpan);
         url = findViewById(R.id.detailURL);
         dogLevel = findViewById(R.id.detailDogLevel);
-        imageView = findViewById(R.id.detailImage);
+//        imageView = findViewById(R.id.detailImage);
 
         catName.setText(cat.getName());
         catDesc.setText(cat.getDescription());
@@ -42,7 +43,7 @@ public class CatDetailActivity extends AppCompatActivity {
         catOrigin.setText(cat.getOrigin());
         catLifeSpan.setText(cat.getLife_span());
         url.setText(cat.getWikipedia_url());
-        dogLevel.setText(cat.getDog_friendly());
+        dogLevel.setText(String.valueOf(cat.getDog_friendly()));
        // imageView.
 
     }

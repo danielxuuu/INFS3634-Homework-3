@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,37 +17,34 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
+<!--        <ImageView
             android:id="@+id/detailImage"
             android:layout_width="400dp"
             android:layout_height="250dp"
             app:layout_constraintTop_toBottomOf="@+id/detailName"
             app:layout_constraintStart_toStartOf="@+id/detailName"
             tools:srcCompat="@tools:sample/avatars" />
-
+-->
         <TextView
             android:id="@+id/detailDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/detailImage"
-            app:layout_constraintStart_toStartOf="@+id/detailImage"
-            android:text="TextView" />
+            app:layout_constraintTop_toBottomOf="@+id/detailName"
+            app:layout_constraintStart_toStartOf="@+id/detailName" />
 
         <TextView
             android:id="@+id/detailWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailDescription"
-            app:layout_constraintStart_toStartOf="@+id/detailDescription"
-            android:text="TextView" />
+            app:layout_constraintStart_toStartOf="@+id/detailDescription" />
 
         <TextView
             android:id="@+id/detailTemp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailWeight"
-            app:layout_constraintStart_toStartOf="@+id/detailWeight"
-            android:text="TextView" />
+            app:layout_constraintStart_toStartOf="@+id/detailWeight" />
 
         <TextView
             android:id="@+id/detailOrigin"
@@ -56,30 +52,55 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailTemp"
             app:layout_constraintStart_toStartOf="@+id/detailTemp"
-            android:text="TextView" />
+            />
+
+        <TextView
+            android:id="@+id/headingLifeSpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/detailOrigin"
+            app:layout_constraintStart_toStartOf="@+id/detailOrigin"
+            android:text="Life Span: "/>
 
         <TextView
             android:id="@+id/detailLifeSpan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailOrigin"
-            app:layout_constraintStart_toStartOf="@+id/detailOrigin"
-            android:text="TextView" />
+            app:layout_constraintStart_toEndOf="@+id/headingLifeSpan"
+            android:text="Life Span: "/>
+
+        <TextView
+            android:id="@+id/headingURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/detailLifeSpan"
+            app:layout_constraintStart_toStartOf="@+id/headingLifeSpan"
+            android:text="Link: "
+            />
 
         <TextView
             android:id="@+id/detailURL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailLifeSpan"
-            app:layout_constraintStart_toStartOf="@+id/detailLifeSpan"
-            android:text="TextView" />
+            app:layout_constraintStart_toEndOf="@+id/headingURL"
+            />
+
+        <TextView
+            android:id="@+id/headingDogLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/detailURL"
+            app:layout_constraintStart_toStartOf="@+id/headingURL"
+            android:text="Dog Friendliness Level: "/>
+
 
         <TextView
             android:id="@+id/detailDogLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailURL"
-            app:layout_constraintStart_toStartOf="@+id/detailURL"
-            android:text="TextView" />
+            app:layout_constraintStart_toEndOf="@+id/headingDogLevel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
