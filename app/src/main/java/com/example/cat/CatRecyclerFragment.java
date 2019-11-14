@@ -28,6 +28,7 @@ public class CatRecyclerFragment extends Fragment {
     public CatRecyclerFragment(){
     }
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View view = inflater.inflate(R.layout.fragment_cat_recycler, container, false);
@@ -38,7 +39,7 @@ public class CatRecyclerFragment extends Fragment {
 
         //volley
         final RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        String url = "https://api.thecatapi.com/v1/breeds";
+        String url = "https://api.thecatapi.com/v1/breeds?api_key=2f922b93-f116-4874-a070-fa28e241586b";
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response){
