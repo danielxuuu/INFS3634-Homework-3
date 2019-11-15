@@ -3,10 +3,9 @@ package com.example.cat;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.cat.Cat;
-
 public class CatDatabase {
     public static HashMap<String, Cat> cats = new HashMap<>();
+    public static HashMap<String, Cat> favourites = new HashMap<>();
 
     public static Cat getCatById(String catID){
         return cats.get(catID);
@@ -16,11 +15,24 @@ public class CatDatabase {
         return (List) cats.values();
     }
 
+    public static List<Cat> getAllFavourites(){
+        return (List) cats.values();
+    }
+
     public static void saveCatstoCatsDatabase(List<Cat> catsToSave){
         for(int i = 0; i < catsToSave.size(); i++){
             Cat cat = catsToSave.get(i);
             cats.put(cat.getId(), cat);
         }
     }
+
+//    //Favourites
+//    public void addToFavourites(List<Cat> ){
+//        favourites.put(cat.getId(), cat)
+//    }
+//
+//    public void removeFromFavourites(String catID){
+//
+//    }
 
 }
