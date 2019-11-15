@@ -3,15 +3,15 @@ package com.example.cat;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +57,7 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> i
                 context.startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -71,13 +72,35 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> i
     public static class CatViewHolder extends RecyclerView.ViewHolder{
         public View view;
         public TextView catNameTextView;
+        public ImageView favImageView;
+        public Boolean isFavourited = false;
 
         public CatViewHolder(View v){
             super(v);
             view = v;
             catNameTextView = v.findViewById(R.id.cat_name);
+            favImageView = v.findViewById(R.id.fav);
+
+
+//            favImageView.setOnClickListener(new View.OnClickListener(){
+//                @Override
+//                public void onClick(View view){
+//                    if(isFavourited){
+//                        favImageView.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+//                    } else {
+//                        favImageView.setImageResource(R.drawable.ic_favorite_black_24dp);
+//                    }
+//                    isFavourited = !isFavourited;
+//                }
+//            });
+
+
         }
     }
+
+
+
+
 
     @Override
     public Filter getFilter(){

@@ -47,19 +47,28 @@
             app:layout_constraintStart_toStartOf="@+id/detailWeight" />
 
         <TextView
-            android:id="@+id/detailOrigin"
+            android:id="@+id/headingOrigin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/detailTemp"
             app:layout_constraintStart_toStartOf="@+id/detailTemp"
+            android:text="Origin: "
+            />
+
+        <TextView
+            android:id="@+id/detailOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/detailTemp"
+            app:layout_constraintStart_toEndOf="@+id/headingOrigin"
             />
 
         <TextView
             android:id="@+id/headingLifeSpan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/detailOrigin"
-            app:layout_constraintStart_toStartOf="@+id/detailOrigin"
+            app:layout_constraintTop_toBottomOf="@+id/headingOrigin"
+            app:layout_constraintStart_toStartOf="@+id/headingOrigin"
             android:text="Life Span: "/>
 
         <TextView
@@ -105,10 +114,10 @@
 
         <ImageView
             android:id="@+id/fav"
-            android:tint="@android:color/white"
             android:src="@drawable/ic_favorite_border_black_24dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@+id/headingDogLevel"
             app:layout_constraintTop_toBottomOf="@id/headingDogLevel"
             />

@@ -30,8 +30,10 @@ public class CatDetailActivity extends AppCompatActivity {
     private TextView url;
     private TextView dogLevel;
     private ImageView imageView;
-
+    public ImageView favouriteImageView;
+    public boolean isFavourited = false;
     private String imageLink;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -45,20 +47,22 @@ public class CatDetailActivity extends AppCompatActivity {
         catDesc = findViewById(R.id.detailDescription);
         catWeight = findViewById(R.id.detailWeight);
         catTemp = findViewById(R.id.detailTemp);
-        catOrigin = findViewById(R.id.detailLifeSpan);
+        catOrigin = findViewById(R.id.detailOrigin);
         catLifeSpan = findViewById(R.id.detailLifeSpan);
         url = findViewById(R.id.detailURL);
         dogLevel = findViewById(R.id.detailDogLevel);
         imageView = findViewById(R.id.detailImage);
+        favouriteImageView = findViewById(R.id.fav);
 
         catName.setText(cat.getName());
         catDesc.setText(cat.getDescription());
-        catWeight.setText(cat.getWeight_imperial());
         catTemp.setText(cat.getTemperament());
         catOrigin.setText(cat.getOrigin());
         catLifeSpan.setText(cat.getLife_span());
         url.setText(cat.getWikipedia_url());
         dogLevel.setText(String.valueOf(cat.getDog_friendly()));
+        catWeight.setText(cat.getWeight_imperial());
+
 
 
 
@@ -96,6 +100,6 @@ public class CatDetailActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, responseListener, errorListener);
         requestQueue.add(stringRequest);
 
-
     }
+
 }
