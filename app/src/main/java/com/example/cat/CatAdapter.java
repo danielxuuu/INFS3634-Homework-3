@@ -5,21 +5,33 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 //import com.example.cat.Cat;
 //import com.example.cat.CatDetailActivity;
 
 
-public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
+public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> implements Filterable {
     private List<Cat> catsToAdapt;
+    private List <Cat> catsToAdaptFull;
+
+    public CatAdapter() {
+
+    }
 
     public void setData(List<Cat> catsToAdapt){this.catsToAdapt = catsToAdapt;}
+
+    CatAdapter(List<Cat> catsToAdapt){
+        catsToAdaptFull = new ArrayList<>(catsToAdapt);
+    }
 
     @NonNull
     @Override
@@ -66,5 +78,40 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
             catNameTextView = v.findViewById(R.id.cat_name);
         }
     }
+
+    @Override
+    public Filter getFilter(){
+        return catFilter;
+    }
+
+    private Filter catFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Cat> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0){
+                filteredList.addAll(catsToAdaptFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Cat item : catsToAdaptFull){
+                    if (item.getName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults srchRes = new FilterResults();
+            srchRes.values = filteredList;
+
+            return srchRes;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults srchRes) {
+            catsToAdapt.clear();
+            catsToAdapt.addAll((List) srchRes.values);
+            notifyDataSetChanged();
+
+        }
+    };
 
 }

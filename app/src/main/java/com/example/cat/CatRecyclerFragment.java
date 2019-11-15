@@ -25,8 +25,8 @@ import java.util.List;
 public class CatRecyclerFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    public CatRecyclerFragment(){
-    }
+//    public CatRecyclerFragment(){
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
